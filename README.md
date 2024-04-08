@@ -1,136 +1,122 @@
-## 1.2. 웹 문서 구조를 만드는 시맨틱 태그
+# 2. 스타일
 
-- 웹사이트 구조는 헤더, 본문, 푸터, 사이드 바 등으로 나누어짐
-- 시맨틱 태그 Can I use 사이트 참고
-- main 태그 : 웹 문서에서 핵심이 되는 내용, 웹 문서마다 다르게 보여주는 내용으로 구성, 웹 문서에서 한번만 사용할 수 있음.
-- article 태그 : 블로그의 포스트나 뉴스 사이트의 기사처럼 독립된 웹 콘텐츠 항목, 여러개 사용 가능
-- sectioe 태그 : 웹 문서의 콘텐츠 영역을 나타냄, article은 독립된 콘텐츠를 다룸, section은 몇 개의 콘텐츠를 묶는 용도
-- aside 태그 : 사이드바 만들 때 필요한 경우
-- footer 태그 : 웹 문서 맨 아래쪽에 있는 푸터 영역을 만든다. 웹 사이트의 정보, 저작권 정보, SNS정보 등을 적는다.
-- div 태그 : 영역을 나눔
+<!-- 피그마에서 유료면 Typography를 볼 수 있음. -->
 
-```html
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>시맨틱 태그</title>
-  </head>
-  <body>
-    <!-- 헤더 영역 -->
-    <header>
-      <!-- 로고 영역 -->
-      <div>
-        <a href="#"><h1>Dream Jeju</h1></a>
-      </div>
-      <hr />
-      <!-- 내비게이션 영역 -->
-      <nav>
-        <!-- 리스트 -->
-        <li><a href="#">단체 여행</a></li>
-        <li><a href="#">맞춤 여행</a></li>
-        <li><a href="#">갤러리</a></li>
-        <li><a href="#">문의하기</a></li>
-        <hr />
-      </nav>
-    </header>
-    <!-- 메인 영역 -->
-    <main>
-      <section>
-        <h2>몸과 마음이 치유되는 섬</h2>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. At alias
-        magnam aperiam explicabo numquam magni temporibus dolore facilis nobis
-        corporis eligendi tempora veritatis harum obcaecati ducimus, dolor
-        impedit molestiae eum?
-      </section>
-      <section>
-        <h2>다양한 액티비티가 기다리는 섬</h2>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. At alias
-        magnam aperiam explicabo numquam magni temporibus dolore facilis nobis
-        corporis eligendi tempora veritatis harum obcaecati ducimus, dolor
-        impedit molestiae eum?
-      </section>
-    </main>
-    <!-- 푸터 영역 -->
-    <footer>
-      <div>
-        <ul>
-          <li><a href="#">회사소개</a></li>
-          <li><a href="#">개인정보처리방침</a></li>
-          <li><a href="#">여행약관</a></li>
-          <li><a href="#">사이트맵</a></li>
-        </ul>
-      </div>
-    </footer>
-  </body>
-</html>
-```
+## 2.1. 스타일 시트
 
-## 1.3. 웹 문서에 다양한 내용 입력하기
+- 브라우저 기본스타일
+- 웹 브라우저에서 기본으로 사용하는 스타일 -인라인 스타일
+- style 속성을 사용해서 필요한 요소에 스타일 직접 지정
+- 내부 스타일 시트
+  - 문서 앞부분에 스타일을 모아서 함께 정의하고 관리
+  ```html
+  <style></style>
+  ```
+- 외부 스타일 시트
+  스타일을 따로 파일로 저장한 후 연결 .css, .scss
 
-### 1.3.1. 텍스트 입력하기
+## 2.2. css 기본 선택자 (selector)
 
-- 제목을 나타내는 h 태그
-- 텍스트 단락을 만드는 p 태그, 줄바꿈 br 태그
-- 인용할 때 쓰는 blockquote 태그
-- 텍스트를 굵게 표시하는 strong, b
-- 기울인 텍스트를 입력해주는 em, i
+1. 전체 선택자
 
-### 1.3.2. 목록 만들기
+- 문서 모든 요소에 스타일을 적용
+- `* {margin: 0 auto;}`
 
-- 순서 있는 목록 ol, li
-- 순서가 없는 목록 ul, li
-- 설명 목록을 만드는 dl, dt, dd 태그 dl : description list, dt : dexcription title 제목, dd: 값(설명)
+2. 타입 선택자
 
-### 1.3.3. 표 만들기
+- 특정 태그를 사용한 모든 요소에서 스타일을 적용
+- p 태그, p {pont-style:italic;}
 
-- 거의 사용안함
+3. 클래스 선택
 
-### 1.3.4. 이미지 삽입
+- 특정 부분만 선택해서 문서 안에 여러번 적용
+- .bg {background-color: #fff}
 
-- 멀티미디어 파일을 삽입할 때 쓰는 object, embed 태그
-- audio, vedio
-- a 태그 새창으로 이동하기 target="\_blank" (안되면 언더바 삭제)
+4. 그룹 선택자
 
-## 1.4. 입력 양식 작성하기
+- 여러 요소에 같은 스타일을 적용
+- h1, h2, ul, li {내용} - 쉼표로 구분 h1 그리고 h2 그리고 ....
 
-### 1.3.1 폼 삽입하기
+5. id 선택자
 
-- 아이디, 비밀번호 입력
-- 로그인, 회원가입
-- 쇼핑몰 주문
-- 커뮤니티, 댓글 등등
-- form 태그에는 속성이 있다.
-  - method : get, post
-  - name : 자바스크립트로 폼을 제어할 때 사용할 폼의 이름을 지정
-  - action : form 태그 안의 내용을 처리해 줄 서버 프로그램을 지정
-  - target : action 속성에서 지정한 스크립트 파일을 현재 창이 아닌 다른 위치에서 열도록 함
-- 폼 요소를 그룹으로 묶는 filedset, legend 태그
-- 폼 요소에 레이블을 붙이는 label 태그
+- #id{내용}
 
-### 1.4.2. 사용자 입력을 위한 input 태그
+## 2.3. 스타일 우선순위
 
-- input 태그의 type 속성
-  - text : 한줄 짜리 텍스트, 텍스트 박스
-  - password : 비밀번호 필드
-  - search : 검색
-  - url : URL 주소 입력
-  - email : 이메일 주소
-  - tel : 전화번호
-  - checkbox : 체크박스(중복 체크 가능)
-  - radio : 라디오버튼 (하나만 체크)
-  - number : 숫자
-  - range : 숫자를 조절할 수 있는 슬라이드 막대
-  - date : 사용자 지역을 기준으로 날짜(년, 월, 일)
-  - month : 년, 월
-  - week : 년, 주
-  - time : 시, 분, 초, 분할초
-  - datetime : 국제표준시간(UTC) 설정되 날짜와 시간(년, 월, 일, 시, 분, 초, 분할초)
-  - datetime-local : 사용자 지역을 기준으로 datetime
-  - submit : 전송 버튼
-  - reset : 리셋 버튼
-  - image : submit 버튼 대시 사용할 이미지
-  - button : 일반 버튼
-  - file : 파일을 첨부할 수 있는 버튼
-  - hidden : 사용자에게 보이지 않지만 서버로 넘겨주기 위한 값이 있는 필드
+1. 얼마나 중요한가?
+
+- 사용자 스타일 -> 제작자 스타일 -> 브라우저 기본 스타일
+
+2. 적용 범위 어디까지인가?
+
+- !improtant -> 인라인 스타일 -> id 스타일 -> 클래스 스타일 -> 타입 스타일
+
+3. 소스 작성 순서
+
+- 나중에 작성한 스타일이 먼저 작성한 스타일을 덮어쓴다.
+
+# 3. 텍스트 스타일
+
+## 3.1. 글자와 관련된 속성
+
+- font-family: 글꼴 종류 지정
+- font-size: 글자 크기 지정
+- font-style: 글자 이탤릭체로 표시할지 지정
+- font-weight: 글자 굵기 100 200 300.....
+
+## 3.2. 텍스트 스타일 속성
+
+- color: 글자색 지정
+- text-decoration: 텍스트의 밑줄, 취소선 표시할지 여부
+- text-transform: 텍스트 전체, 또는 첫 글자를 대문자로 표시 여부
+- text-shadow: 텍스트의 그림자 추가 여부
+- letter-spacing: 글자 사이의 간격(자간)
+- word-spacing: 단어 사이의 간격
+- text-align: 텍스트 정렬 방법 지정 (오른쪽지정, 왼쪽지정...)
+- line-height: 줄 간격 조정(행간)
+
+## 3.3. 웹에서 색상을 지정하는 방법
+
+- 16진수 Hex: #ffffff
+- rgb(red, green, blue), rgba(red, green, blue, alpha(투명도))
+  rgba(111, 111, 111, 0.7) -투명도를 70%준다는 뜻.
+- hsl, hsla
+- 색상이름 white, black
+- 16진수 Hex, rgb, rgba 를 가장 많이 사용한다.
+
+## 3.4. 텍스트를 정렬하는 text-align 속성
+
+- start: 현재 텍스트 줄의 시작 위치에 맞추어 문단을 정렬한다.
+- end: 현재 텍스트 줄의 끝 위치에 맞추어 문단을 정렬
+- left: 왼쪽
+- right: 오른쪽
+- center: 가운데
+- justify: 양쪽 맞춤
+- match-parent: 부모 요소를 따라 문단 정렬
+
+## 3.5. 줄 간격을 조절하는 line-height(행간) 속성
+
+- 보통 1.25~ 1.75배 정도 추천 (개인성향차 있음 때에따라 2배까지도..)
+
+## 3.6. 텍스트의 줄을 표시하거나 없애 주는 text-decoration 속성
+
+- 텍스트에 밑줄을 긋거나 취소선을 표시
+- 하이퍼링크 밑주 없애기 등에 사용
+- none; underline; overline;(윗줄) line through(취소선)
+
+## 3.7. 텍스트의 그림자 효과 text-shadow 속성
+
+- text-shadow: 가로거리 세로거리 번짐정도 색상
+
+## 3.8. 텍스트의 대소문자를 변환하는 text-transform 속성
+
+- 영문자 대소문자를 표시
+- capitalize: 첫 번째 글자를 대문자로
+- uppercase: 모든 글자를 대문자로
+- lowercase; 모든 글자를 소문자로
+- full-width: 가능한 모든 문자를 전각 문자로 변환
+
+## 3.9. 글자 간격을 조절하는 letter-spacing, word-spacing
+
+- letter-spacing: 글자 사이의 간격(자간)
+- word-spacing: 단어와 단어 사이의 간격

@@ -196,3 +196,74 @@ ul {
 - 박스 모델은 콘텐츠 영역
 - 박스와 콘텐츠 영역 사이의 여백(패딩)
 - 박스와 테두리 그리고 여러 박스 모델 사이의 여백(마진)
+
+### 4.1.3. 콘텐츠 영역의 크기를 지정하는 width, height 속성
+
+- 단위: px이나 em단위로 지정, 그러나 주로 px, rem 단위를 많이 쓴다.
+- em은 부모 요소의 글꼴 크기에 상대적이다.
+- 그래서 rem(root em) 단위를 쓰는 것이 일관된 크기 조정에 용이하다.
+- 백분율 : 박스 모델을 포함하는 부모 요소를 기준으로 너비, 높이 값을 백분율(%)로 지정한다. --> 반응형에 기초 자주사용됨.
+- auto : 박스 모델의 너비, 높이 값이 콘텐츠 양에 따라 자동으로 결정(기본값)
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>박스모델</title>
+  </head>
+  <body>
+    <style>
+      .box1 {
+        width: 400px;
+        height: 100px;
+        border: 1px solid red;
+      }
+      .box2 {
+        width: 50%;
+        height: 100px;
+        border: 1px solid blue;
+      }
+    </style>
+  </body>
+  <div class="box1"></div>
+  <div class="box2"></div>
+</html>
+```
+
+### 4.1.4. 박스 모델의 크기를 계산하는 box-sizing 속성
+
+- border-box : 테두리까지 포함해서 width 값을 지정
+  - 프로젝트마다 통일성을 주어야하기 때문에 다를 수 있음 주의!
+- content-box : 콘텐츠 영역만 width 값을 지정(기본값)
+- 웹 문서를 레이아웃을 만들 때 요소의 크기를 쉽게 계산하려면 border-box로 지정
+
+### 4.1.5. 박스 모델에 그림자 효과를 주는 box-shadow 속성
+
+- box-shadow : 수평거리 수직거리 흐림정도 번짐정도 색상 inset
+- 수평거리 : 양수(오른쪽), 음수(왼쪽), 필수속성
+- 수직거리 : 양수(아래쪽), 음수(위쪽), 필수속성
+- 흐림정도 : 생략 시 0을 기본값으로 진한 그림자, 커질 수록 부드러움
+- 번짐정도 : 양수(모든방향으로 퍼짐), 음수(모든방향으로 축소), 기본값 0
+- 색상 : 한가지 또는 공백으로 구분하여 여러 색상 지정 가능
+- inset : 그림자 안쪽으로
+
+### 4.2 테두리 스타일 지정하기
+
+### 4.2.1. 박스 모델의 방향 살펴보기
+
+- top -> right -> bottom -> left 시계 방향 순서
+
+### 4.2.2. 테두리 스타일을 지정하는 border-style 속성
+
+- none : 기본값. 테두리없음.
+- hidden : 테두리 감춤
+- solid : 실선
+- dotted : 도트선
+- dashed : 점선
+- double : 이중선, 요소 주위에 이중 테두리를 만든다.
+- groove : 홈이 파인 듯 한 입체 느낌
+- inset : 표에서 사용
+- outset : 표에서 사용
+- ridge : 튀어 나온 듯 입체 느낌
